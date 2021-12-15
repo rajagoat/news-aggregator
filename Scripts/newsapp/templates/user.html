@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+    <a href="{% url 'scrape' %}" class="btn">Sign Out</a> <a href="{% url 'scrape' %}" class="btn">Profile Settings</a>
+    <div class="jumbotron">
+        <center>
+            <h1>471 News Aggregator</h1>
+            <br />
+            <input class="search" type="text" placeholder="Search" size="50">
+            <a href="{% url 'scrape' %}" class="btn btn-link" style="color:green;">Submit</a>
+        </center>
+    </div>
+
+    <div style="margin:16px;display:flex;justify-content: space-between;">
+        <div>
+            Filter by topic:
+            <a href="{% url 'scrape' %}" class="btn btn-link">#lorem</a>
+            <a href="{% url 'scrape' %}" class="btn btn-link">#ipsum</a>
+            <a href="{% url 'scrape' %}" class="btn btn-link">#dolor</a>
+            <a href="{% url 'scrape' %}" class="btn btn-link">#sit</a>
+        </div>
+
+
+        <a href="{% url 'scrape' %}" class="btn btn-warning">View notes</a>
+    </div>
+
+
+
+    <div class="flex-container">
+        <div class="card">
+            <center class="flex-card-container">
+                <h1>Lorem Ipsum</h1>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada ut quam vitae interdum. Ut
+                aliquam vel lacus eget sagittis. Nunc non erat vehicula, fringilla erat id, congue magna...
+                <br />
+                <br />
+                <div>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">See Reviews</a>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">Add/Edit</a>
+                </div>
+
+            </center>
+            <br />
+            <div class="tag-container">
+                <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                    #lorem
+                </div>
+                <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                    #ipsum
+                </div>
+                <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                    #dolor
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <center class="flex-card-container">
+                <h1>Lorem Ipsum</h1>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada ut quam vitae interdum. Ut
+                aliquam vel lacus eget sagittis. Nunc non erat vehicula, fringilla erat id, congue magna...
+                <br />
+                <br />
+                <div>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">See Reviews</a>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">Add/Edit</a>
+                </div>
+
+            </center>
+            <br />
+            <div class="tag-container">
+                <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                    #lorem
+                </div>
+                <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                    #ipsum
+                </div>
+                <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                    #dolor
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <center class="flex-card-container">
+                <h1>Lorem Ipsum</h1>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada ut quam vitae interdum. Ut
+                aliquam vel lacus eget sagittis. Nunc non erat vehicula, fringilla erat id, congue magna...
+                <br />
+                <br />
+                <div>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">See Reviews</a>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">Add/Edit</a>
+                </div>
+
+            </center>
+            <br />
+            <div class="tag-container">
+                <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                    #lorem
+                </div>
+                <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                    #ipsum
+                </div>
+                <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                    #dolor
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <center class="flex-card-container">
+                <h1>Lorem Ipsum</h1>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada ut quam vitae interdum. Ut
+                aliquam vel lacus eget sagittis. Nunc non erat vehicula, fringilla erat id, congue magna...
+                <br />
+                <br />
+                <div>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">See Reviews</a>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">Add/Edit</a>
+                </div>
+
+            </center>
+            <br />
+            <div class="tag-container">
+                <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                    #lorem
+                </div>
+                <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                    #ipsum
+                </div>
+                <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                    #dolor
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <center class="flex-card-container">
+                <h1>Lorem Ipsum</h1>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada ut quam vitae interdum. Ut
+                aliquam vel lacus eget sagittis. Nunc non erat vehicula, fringilla erat id, congue magna...
+                <br />
+                <br />
+                <div>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">See Reviews</a>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">Add/Edit</a>
+                </div>
+
+            </center>
+            <br />
+            <div class="tag-container">
+                <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                    #lorem
+                </div>
+                <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                    #ipsum
+                </div>
+                <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                    #dolor
+                </div>
+                <div class="tag" style="color:#807701;background-color:#fffcce;">
+                    #sit
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <center class="flex-card-container">
+                <h1>Lorem Ipsum</h1>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada ut quam vitae interdum. Ut
+                aliquam vel lacus eget sagittis. Nunc non erat vehicula, fringilla erat id, congue magna...
+                <br />
+                <br />
+                <div>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">See Reviews</a>
+                    <a href="{% url 'scrape' %}" class="btn btn-success">Add/Edit</a>
+                </div>
+
+            </center>
+            <br />
+            <div class="tag-container">
+                <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                    #lorem
+                </div>
+                <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                    #ipsum
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
