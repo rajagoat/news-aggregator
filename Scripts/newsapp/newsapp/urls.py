@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('user/', views.user, name='user'),
     path('author/', views.author, name='author'),
-    path('articles/', include('articles.urls'))
+    path('articles/', include('articles.urls')),
+    path('attrs/', include('attributes.urls'))
 ]
