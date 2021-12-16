@@ -10,6 +10,9 @@ class Article(models.Model):
     def __str__(self):
         return self.name
 
+    def snippet(self):
+        return self.body[:50] + '...'
+
 # Topic
 
 # News Source
