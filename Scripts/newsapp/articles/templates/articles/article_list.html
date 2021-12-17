@@ -2,28 +2,30 @@
 {% load static %}
 
 {% block title %}
-    <title>Articles</title>
+<title>Articles</title>
 {% endblock %}
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'article_list.css' %}">
+<link rel="stylesheet" href="{% static 'article_list.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="jumbotron">
-        <center>
-            <h1>471 News Aggregator</h1>
-            <br>
-        </center>
-    </div>
-    <h1>Article List</h1>
-    <div class="articles">
-        {% for article in articles %}
-            <div class="article">
-                {% if article.img %}
-                    <img src="{{ article.img.url }}">
-                {% endif %}
-                <h2><a href="{% url 'articles:details' article.slug %}">{{ article.name }}</a></h2>
-                <p>{{ article.snippet }}</p>
+<div class="jumbotron">
+    <center>
+        <h1>471 News Aggregator</h1>
+        <br>
+    </center>
+</div>
+<h1>Article List</h1>
+<div class="articles">
+    {% for article in articles %}
+    <div class="article">
+        {% if article.img %}
+            <div class="thumb">
+                <img src="{{ article.img.url }}">
             </div>
-        {% endfor %}
+        {% endif %}
+        <h2><a href="{% url 'articles:details' article.slug %}">{{ article.name }}</a></h2>
+        <p>{{ article.snippet }}</p>
     </div>
+    {% endfor %}
+</div>
 {% endblock %}
