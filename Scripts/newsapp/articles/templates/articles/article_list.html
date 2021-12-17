@@ -75,7 +75,9 @@
 
         <center class="flex-card-container">
             <h3 class="snippetTitle">
-                {{article.snippetTitle}}
+                <a href="{% url 'articles:details' article.slug %}">
+                    {{article.snippetTitle}}
+                </a>
             </h3>
             <div class="snippet">
                 {{article.snippet}}
