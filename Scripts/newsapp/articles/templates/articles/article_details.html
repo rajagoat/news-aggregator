@@ -59,7 +59,7 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                 {% for rating in ratings %}
                 <div>
                     {% if rating.refer_to_friend %}
-                    <p>eivn</p>
+                    <p>POSITIVE</p>
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -69,10 +69,11 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                 <center>
                     <h1>Comments</h1>
                 </center>
-
                 {% for comment in comments %}
                 <div>
-                    {{ comment.comment }}
+                    {% if comment.article_id == article.id %}
+                        {{ comment.comment }}
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

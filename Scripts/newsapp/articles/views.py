@@ -9,14 +9,15 @@ from . import forms
 def article_list(request):
     articles = Article.objects.all()
     notes = Note.objects.all()
-    comments = Comment.objects.all()
-    ratings = Rating.objects.all()
-    return render(request, 'articles/article_list.html', {'articles': articles, 'notes':notes, 'comments':comments, 'ratings':ratings})
+    
+    return render(request, 'articles/article_list.html', {'articles': articles, 'notes': notes})
 
 def article_details(request, slug):
     # return HttpResponse(slug)
     article = Article.objects.get(slug = slug)
-    return render(request, 'articles/article_details.html', {'article': article})
+    comments = Comment.objects.all()
+    ratings = Rating.objects.all()
+    return render(request, 'articles/article_details.html', {'article': article, 'comments': comments, 'ratings': ratings})
 
 # @login_required(login_url="/accounts/login/")
 def note_create(request):
