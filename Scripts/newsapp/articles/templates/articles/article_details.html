@@ -22,7 +22,7 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                 <a href="{% url 'articles:list' %}" class="btn btn-link">
                     < Back</a>
 
-                        <div>
+                        <!-- <div>
                             <div class="tag-container">
                                 <div class="article-tag" style="color:#087a04;background-color:#d3f5d2;">
                                     #lorem
@@ -34,7 +34,7 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                                     #dolor
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
             </div>
 
 
@@ -52,26 +52,31 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 
         <div class="feedback-box">
             <div class="rating-card hi">
-                <center>
-                    <h1>Ratings</h1>
-                </center>
+                <div style="display: flex;justify-content: space-between;align-items: center;">
+                    <h1 style="padding: 0px 0 16px 16px;">Ratings</h1>
+                    <a href="{% url 'articles:note_create' %}" class="btn btn-link" style="text-decoration: none;padding: 0 20px 16px 6px;margin-bottom: 6px;font-size: 30px;">+</a>
+                </div>
                 
                 {% for rating in ratings %}
+                <hr/>
                 <div>
                     {% if rating.refer_to_friend %}
                     <p>POSITIVE</p>
                     {% endif %}
+                    {{ rating.rating }}
                 </div>
                 {% endfor %}
             </div>
     
             <div class="comment-card hi">
-                <center>
-                    <h1>Comments</h1>
-                </center>
+                <div style="display: flex;justify-content: space-between;align-items: center;">
+                    <h1 style="padding: 0px 0 16px 16px;">Comments</h1>
+                    <a href="{% url 'articles:note_create' %}" class="btn btn-link" style="text-decoration: none;padding: 0 20px 16px 6px;margin-bottom: 6px;font-size: 30px;">+</a>
+                </div>
                 {% for comment in comments %}
+                <hr/>
                 <div>
-                    {% if comment.article_id == article.id %}
+                    {% if article.id != comment.article_id %}
                         {{ comment.comment }}
                     {% endif %}
                 </div>
