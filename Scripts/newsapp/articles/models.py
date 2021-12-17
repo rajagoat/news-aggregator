@@ -15,7 +15,10 @@ class Article(models.Model):
         return self.name
 
     def snippet(self):
-        return truncatechars(self.body, 50)
+        return truncatechars(self.body, 200)
+
+    def snippetTitle(self):
+        return truncatechars(self.name, 34)
 
 # Topic
 
