@@ -10,12 +10,12 @@ class CreateNote(forms.ModelForm):
 class CreateAuthNote(forms.ModelForm):
     class Meta:
         model = models.AuthNote
-        fields = ['title','body','article_id']
+        fields = ['article_id','title','body']
 
 class CreateRating(forms.ModelForm):
     class Meta:
         model = models.Rating
-        fields = ['refer_to_friend', 'rating', 'article_id']
+        fields = ['article_id','refer_to_friend', 'rating']
 
 class CreateComment(forms.ModelForm):
     class Meta:

@@ -44,7 +44,22 @@ class Rating(models.Model):
     article_id = models.ForeignKey(Article, on_delete=models.CASCADE,  default=None)
     rating_id = models.BigAutoField(primary_key=True)
     refer_to_friend = models.BooleanField()
-    rating = models.CharField(max_length=15, choices=[(tag, tag.value) for tag in RatingChoice])
+
+    UN = "One Star"
+    DE = "Two Stars"
+    TR = "Three Stars"
+    CA = "Four Stars"
+    CI = "Five Stars"
+
+    CHOICES=(
+        (UN, UN),
+        (DE, DE),
+        (TR, TR),
+        (CA, CA),
+        (CI, CI)
+    )
+
+    rating = models.CharField(max_length=15, choices=CHOICES)
 
     def __str__(self):
         return str(self.rating_id)

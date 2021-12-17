@@ -24,7 +24,8 @@ def note_create(request):
             # save article to db
             instance = form.save(commit=False)
             instance.user_id = request.user
-            return redirect('articles/article_list.html')
+            instance.save()
+            return redirect('/articles/')
         
     else:
         form = forms.CreateNote()
@@ -39,7 +40,8 @@ def auth_note_create(request):
             # save article to db
             instance = form.save(commit=False)
             instance.user_id = request.user
-            return redirect('articles/article_list.html')
+            instance.save()
+            return redirect('/articles/')
         
     else:
         form = forms.CreateAuthNote()
@@ -54,7 +56,8 @@ def comment_create(request):
             # save article to db
             instance = form.save(commit=False)
             instance.user_id = request.user
-            return redirect('articles/article_list.html')
+            instance.save()
+            return redirect('/articles/')
         
     else:
         form = forms.CreateComment()
@@ -69,7 +72,8 @@ def rating_create(request):
             # save article to db
             instance = form.save(commit=False)
             instance.user_id = request.user
-            return redirect('articles/article_list.html')
+            instance.save()
+            return redirect('/articles/')
         
     else:
         form = forms.CreateRating()
