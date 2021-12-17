@@ -6,25 +6,66 @@
 {% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="{% static 'article_list.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 {% endblock %}
 {% block content %}
+<a href="" class="btn">Sign Out</a> <a href="" class="btn">Profile Settings</a>
 <div class="jumbotron">
     <center>
         <h1>471 News Aggregator</h1>
-        <br>
+        <br />
+        <input class="search" type="text" placeholder="Search" size="50">
+        <a href="" class="btn btn-link" style="color:green;">Submit</a>
     </center>
 </div>
-<h1>Article List</h1>
+
+<div style="margin:16px;display:flex;justify-content: space-between;">
+    <div>
+        Filter by topic:
+        <a href="" class="btn btn-link">#lorem</a>
+        <a href="" class="btn btn-link">#ipsum</a>
+        <a href="" class="btn btn-link">#dolor</a>
+        <a href="" class="btn btn-link">#sit</a>
+    </div>
+
+
+    <a href="" class="btn btn-warning">View notes</a>
+</div>
+
 <div class="articles">
     {% for article in articles %}
     <div class="article">
-        {% if article.img %}
-            <div class="thumb">
-                <img src="{{ article.img.url }}">
+
+        <div class="img">
+            <img src="{{ article.img.url }}">
+        </div>
+
+
+        <center class="flex-card-container">
+            <h3 class="snippetTitle">
+                {{article.snippetTitle}}
+            </h3>
+            <div class="snippet">
+                {{article.snippet}}
             </div>
-        {% endif %}
-        <h2><a href="{% url 'articles:details' article.slug %}">{{ article.name }}</a></h2>
-        <p>{{ article.snippet }}</p>
+            <div class="card-buttons">
+                <a href="" class="btn btn-success">See Reviews</a>
+                <a href="" class="btn btn-success">Add/Edit</a>
+            </div>
+
+        </center>
+        <div class="tag-container">
+            <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                #lorem
+            </div>
+            <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                #ipsum
+            </div>
+            <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                #dolor
+            </div>
+        </div>
     </div>
     {% endfor %}
 </div>
