@@ -4,6 +4,7 @@ from .models import Article, Topic
 from . import forms
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 
 @login_required(login_url="/accounts/login/")
@@ -13,6 +14,8 @@ def article_list(request):
     topics = Topic.objects.all()
     context = {'articles': articles, 'topics': topics, 'notes': notes}
     return render(request, 'articles/article_list.html', context)
+
+
 
 @login_required(login_url="/accounts/login/")
 def article_details(request, slug):
