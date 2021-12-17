@@ -56,15 +56,47 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                     <h1 style="padding: 0px 0 16px 16px;">Ratings</h1>
                     <a href="{% url 'articles:rating_create' %}" class="btn btn-link" style="text-decoration: none;padding: 0 20px 16px 6px;margin-bottom: 6px;font-size: 30px;">+</a>
                 </div>
+
+
                 
                 {% for rating in ratings %}
+                {% if article.name|slugify == rating.article_id|slugify %}
                 <hr/>
                 <div>
+                    {% if rating.rating == "One Star" %}
+                    * {{rating.rating}} 
                     {% if rating.refer_to_friend %}
                     <p>Would reccomend</p>
                     {% endif %}
-                    {{ rating.rating }}
+                    {% endif %}
+                    {% if rating.rating == "Two Stars" %}
+                    ** {{rating.rating}}
+                    {% if rating.refer_to_friend %}
+                    <p>Would reccomend</p>
+                    {% endif %}
+                    {% endif %}
+                    {% if rating.rating == "Three Stars" %}
+                    *** {{rating.rating}}
+                    {% if rating.refer_to_friend %}
+                    <p>Would reccomend</p>
+                    {% endif %}
+                    {% endif %}
+                    {% if rating.rating == "Four Stars" %}
+                    **** {{rating.rating}}
+                    {% if rating.refer_to_friend %}
+                    <p>Would reccomend</p>
+                    {% endif %}
+                    {% endif %}
+                    {% if rating.rating == "Five Stars" %}
+                    ***** {{rating.rating}}
+                    {% if rating.refer_to_friend %}
+                    <p>Would reccomend</p>
+                    {% endif %}
+                    {% endif %}
+
+
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
     
@@ -74,16 +106,10 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                     <a href="{% url 'articles:comment_create' %}" class="btn btn-link" style="text-decoration: none;padding: 0 20px 16px 6px;margin-bottom: 6px;font-size: 30px;">+</a>
                 </div>
                 {% for comment in comments %}
-                <hr/>
+               
                 <div>
-                    {{ article.name }}
-                    {{ comment.article_id}}
-
-
-                    {% if article.name != comment.article_id %}
-                        
-                    {% endif %}
-                    {% if article.name == comment.article_id %}
+                    {% if article.name|slugify == comment.article_id|slugify %}
+                        <hr/>
                         {{ comment.comment }}
                     {% endif %}
                 </div>

@@ -44,8 +44,18 @@
         {% endfor %}
     </div>
 </div>
+<navbar style="margin:16px;display:flex;justify-content: flex-start;">
+    <form action="{% url 'accounts:logout'%}" method="post">
+        {% csrf_token %}
+        <button class="btn" type="submit">Logout</button>
+    </form>
+    <form action="{% url 'accounts:editProfile'%}" method="post">
+        {% csrf_token %}
+        <button class="btn" type="submit">EditProfile</button>
+    </form>
+</navbar>
 
-<a href="" class="btn">Sign Out</a> <a href="" class="btn">Profile Settings</a>
+
 <div class="jumbotron">
     <center>
         <h1>471 News Aggregator</h1>

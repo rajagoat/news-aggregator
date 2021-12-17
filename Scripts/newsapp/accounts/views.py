@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from .forms import UserRegisterForm, ProfileRegisterForm, AuthorRegisterForm
 from .models import Profile, Reader, Author
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -86,3 +87,15 @@ def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return redirect('articles:list')
+
+@login_required(login_url='/accounts/login')
+def editProfile(request):
+    profile = Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        profile_form = ProfileRegisterForm(request.POST, instance=profile)
+        if(profile_form.is_valid()):
+            profile_form.save()
+        return redirect('accounts:editProfile')
+    else:
+        profile_form = ProfileRegisterForm(instance=profile)
+        return render(request, 'accounts/editProfile.html', {"form":profile_form})

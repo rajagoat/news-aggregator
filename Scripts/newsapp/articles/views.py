@@ -2,9 +2,11 @@ from django.shortcuts import redirect, render
 from attributes.models import Note, Rating, Comment
 from .models import Article, Topic
 from . import forms
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required(login_url="/accounts/login/")
 def article_list(request):
     articles = Article.objects.all()
     notes = Note.objects.all()
@@ -12,6 +14,7 @@ def article_list(request):
     context = {'articles': articles, 'topics': topics, 'notes': notes}
     return render(request, 'articles/article_list.html', context)
 
+@login_required(login_url="/accounts/login/")
 def article_details(request, slug):
     # return HttpResponse(slug)
     article = Article.objects.get(slug = slug)
@@ -19,7 +22,8 @@ def article_details(request, slug):
     ratings = Rating.objects.all()
     return render(request, 'articles/article_details.html', {'article': article, 'comments': comments, 'ratings': ratings})
 
-# @login_required(login_url="/accounts/login/")
+
+@login_required(login_url="/accounts/login/")
 def note_create(request):
     if request.method == 'POST':
         form = forms.CreateNote(request.POST)
@@ -35,7 +39,7 @@ def note_create(request):
     
     return render(request, 'articles/note_create.html', { 'form':form })
 
-# @login_required(login_url="/accounts/login/")
+@login_required(login_url="/accounts/login/")
 def auth_note_create(request):
     if request.method == 'POST':
         form = forms.CreateAuthNote(request.POST)
@@ -51,7 +55,7 @@ def auth_note_create(request):
     
     return render(request, 'articles/auth_note_create.html', { 'form':form })
 
-# @login_required(login_url="/accounts/login/")
+@login_required(login_url="/accounts/login/")
 def comment_create(request):
     if request.method == 'POST':
         form = forms.CreateComment(request.POST)
@@ -67,7 +71,7 @@ def comment_create(request):
     
     return render(request, 'articles/comment_create.html', { 'form':form })
 
-# @login_required(login_url="/accounts/login/")
+@login_required(login_url="/accounts/login/")
 def rating_create(request):
     if request.method == 'POST':
         form = forms.CreateRating(request.POST)
@@ -83,6 +87,7 @@ def rating_create(request):
     
     return render(request, 'articles/rating_create.html', { 'form':form })
 
+@login_required(login_url="/accounts/login/")
 def search_results(request):
     if request.method == "POST":
         searched = request.POST['search']
@@ -93,6 +98,7 @@ def search_results(request):
     else:
         return render(request, 'articles/search_results.html', {})
 
+@login_required(login_url="/accounts/login/")
 def filter_results(request, slug):
     filteredArticles = Article.objects.filter(topic = slug)
     context = {'slug': slug, 'filteredArticles': filteredArticles}
