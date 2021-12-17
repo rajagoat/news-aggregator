@@ -9,6 +9,7 @@ class Article(models.Model):
     date = models.DateTimeField(default=now)
     body = models.TextField()
     img = models.ImageField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, max_length=50)
 
     def __str__(self):
         return self.name
