@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
-from .models import Article
 from attributes.models import Note, Rating, Comment
-from django.http import HttpResponse
+from .models import Article, Topic
 from . import forms
 
 # Create your views here.
@@ -9,8 +8,9 @@ from . import forms
 def article_list(request):
     articles = Article.objects.all()
     notes = Note.objects.all()
-    
-    return render(request, 'articles/article_list.html', {'articles': articles, 'notes': notes})
+    topics = Topic.objects.all()
+    context = {'articles': articles, 'topics': topics, 'notes': notes}
+    return render(request, 'articles/article_list.html', context)
 
 def article_details(request, slug):
     # return HttpResponse(slug)
@@ -82,3 +82,18 @@ def rating_create(request):
         form = forms.CreateRating()
     
     return render(request, 'articles/rating_create.html', { 'form':form })
+
+def search_results(request):
+    if request.method == "POST":
+        searched = request.POST['search']
+        results = Article.objects.filter(name__icontains=searched)
+        articles = Article.objects.all()
+        context = {'articles': articles, 'searched': searched, 'results': results}
+        return render(request, 'articles/search_results.html', context)
+    else:
+        return render(request, 'articles/search_results.html', {})
+
+def filter_results(request, slug):
+    filteredArticles = Article.objects.filter(topic = slug)
+    context = {'slug': slug, 'filteredArticles': filteredArticles}
+    return render(request, 'articles/filter_results.html', context)

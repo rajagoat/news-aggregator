@@ -10,4 +10,6 @@ urlpatterns = [
     path('comment_create/', views.comment_create, name='comment_create'), # TEST
     path('rating_create/', views.rating_create, name='rating_create'), # TEST
     path('<slug:slug>/', views.article_details, name='details'),
+    path('search_results', views.search_results, name='search_results'),
+    path('filter_results/<slug:slug>/', views.filter_results, name='filter_results')
 ]

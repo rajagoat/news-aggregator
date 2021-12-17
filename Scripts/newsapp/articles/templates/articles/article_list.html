@@ -41,7 +41,7 @@
                 </div>
              </div>
         </div>
-        {%endfor%}
+        {% endfor %}
     </div>
 </div>
 
@@ -50,18 +50,20 @@
     <center>
         <h1>471 News Aggregator</h1>
         <br />
-        <input class="search" type="text" placeholder="Search" size="50">
-        <a href="" class="btn btn-link" style="color:green;">Submit</a>
+        <form method=POST action="{% url 'articles:search_results' %}">
+            {% csrf_token %}
+            <input class="search" name="search" type="text" placeholder="Search by title" size="50" value="{{request.GET.name}}">
+            <input class="btn btn-link" style="color:green;" type="submit" value="Submit">
+        </form>
     </center>
 </div>
 
 <div style="margin:16px;display:flex;justify-content: space-between;">
     <div>
         Filter by topic:
-        <a href="" class="btn btn-link">#lorem</a>
-        <a href="" class="btn btn-link">#ipsum</a>
-        <a href="" class="btn btn-link">#dolor</a>
-        <a href="" class="btn btn-link">#sit</a>
+        {% for topic in topics %}
+            <a href="{% url 'articles:filter_results' topic.name %}" class="btn btn-link">#{{ topic.name }}</a>
+        {% endfor %}
     </div>
 
     <label for="slide-box" class="btn btn-warning">
@@ -92,14 +94,11 @@
         </center>
         
         <div class="tag-container">
-            <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
-                #lorem
-            </div>
-            <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
-                #ipsum
-            </div>
             <div class="tag" style="color:#135686;background-color:#b3d7f1;">
-                #dolor
+                {{ article.newsSource }}
+            </div>
+            <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                #{{ article.topic }}
             </div>
         </div>
     </div>
