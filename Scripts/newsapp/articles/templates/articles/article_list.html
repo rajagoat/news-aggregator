@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +8,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
+    <link rel="stylesheet" href="/static/article_list.css">
 </head>
 
 <body>
+    <div class="jumbotron">
+        <center>
+            <h1>471 News Aggregator</h1>
+            <br>
+        </center>
+    </div>
     <h1>Article List</h1>
     <div class="articles">
         {% for article in articles %}
             <div class="article">
+                {% if article.img %}
+                    <img src="{{ article.img.url }}">
+                {% endif %}
                 <h2><a href="#">{{ article.name }}</a></h2>
                 <p>{{ article.snippet }}</p>
             </div>
