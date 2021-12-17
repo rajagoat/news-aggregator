@@ -24,3 +24,8 @@ def search_results(request):
         return render(request, 'articles/search_results.html', context)
     else:
         return render(request, 'articles/search_results.html', {})
+
+def filter_results(request, slug):
+    filteredArticles = Article.objects.filter(topic = slug)
+    context = {'slug': slug, 'filteredArticles': filteredArticles}
+    return render(request, 'articles/filter_results.html', context)

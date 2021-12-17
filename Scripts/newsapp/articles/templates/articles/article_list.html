@@ -57,7 +57,7 @@
     <div>
         Filter by topic:
         {% for topic in topics %}
-            <a href="#" class="btn btn-link">#{{ topic.name }}</a>
+            <a href="{% url 'articles:filter_results' topic.name %}" class="btn btn-link">#{{ topic.name }}</a>
         {% endfor %}
     </div>
 
