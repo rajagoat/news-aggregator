@@ -5,17 +5,57 @@
     <title>{{ article.name }}</title>
 {% endblock %}
 {% block styles %}
-    <!-- <link rel="stylesheet" href="{% static 'article_list.css' %}"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href={% static 'global.css' %}>
+
 {% endblock %}
 {% block content %}
-    <div class="article_details">
-        <div class="article">
-            <h2>{{ article.name }}</h2>
-            <p>{{ article.date }}</p>
-            {% if article.img %}
-                <img src="{{ article.img.url }}">
-            {% endif %}
-            <p>{{ article.body }}</p>
+    {% if article.img %}
+    <img class="article-card-img" src="{{ article.img.url }}">
+    {% endif %}
+   
+    <div class="flex-container">
+        <div class="read-card hi">
+            <div style="display: flex;justify-content: space-between;">
+                <a href="{% url 'articles:list' %}" class="btn btn-link">
+                    < Back</a>
+
+                        <div>
+                            <div class="tag-container">
+                                <div class="article-tag" style="color:#087a04;background-color:#d3f5d2;">
+                                    #lorem
+                                </div>
+                                <div class="article-tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                                    #ipsum
+                                </div>
+                                <div class="article-tag" style="color:#135686;background-color:#b3d7f1;">
+                                    #dolor
+                                </div>
+                            </div>
+                        </div>
+            </div>
+
+
+            <center>
+                <h1>{{ article.name }}</h1>
+                <p>{{ article.date }}</p>
+            </center>
+
+            <br />
+
+            <div>
+                {{ article.body }}
+            </div>
         </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 {% endblock %}
