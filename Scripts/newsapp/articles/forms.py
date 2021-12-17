@@ -10,4 +10,4 @@ class CreateNote(forms.ModelForm):
 class CreateReview(forms.ModelForm):
     class Meta:
         model = models.Rating
-        fields = ['note_id', 'about'] # How to pass in user_id?
+        fields = ['refer_to_friend', 'rating'] # How to pass in user_id?

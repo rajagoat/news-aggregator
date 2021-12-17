@@ -39,7 +39,7 @@ class RatingChoice(Enum):
     CI = "Five Stars"
 
 class Rating(models.Model):
-    article_id = models.ForeignKey(Article, default=None) # Switch to foreign
+    article_id = models.ForeignKey(Article, on_delete=models.CASCADE,  default=None)
     rating_id = models.BigAutoField(primary_key=True)
     refer_to_friend = models.BooleanField()
     rating = models.CharField(max_length=15, choices=[(tag, tag.value) for tag in RatingChoice])
