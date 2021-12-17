@@ -19,7 +19,12 @@
         < Hide
     </label>
 
-    <h1 style="padding: 0px 0 16px 16px;">Notes</h1>
+    <div style="display: flex;justify-content: space-between;align-items: center;">
+        <h1 style="padding: 0px 0 16px 16px;">Notes</h1>
+        <a href="{% url 'articles:note_create' %}" class="btn btn-link" style="text-decoration: none;padding: 0 20px 16px 6px;margin-bottom: 6px;font-size: 30px;">+</a>
+    </div>
+
+    
 
     <div class="notes">
         {% for note in notes %}
