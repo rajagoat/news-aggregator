@@ -45,8 +45,11 @@
     <center>
         <h1>471 News Aggregator</h1>
         <br />
-        <input class="search" type="text" placeholder="Search" size="50">
-        <a href="" class="btn btn-link" style="color:green;">Submit</a>
+        <form method=POST action="{% url 'articles:search_results' %}">
+            {% csrf_token %}
+            <input class="search" name="search" type="text" placeholder="Search by title" size="50" value="{{request.GET.name}}">
+            <input class="btn btn-link" style="color:green;" type="submit" value="Submit">
+        </form>
     </center>
 </div>
 
@@ -88,12 +91,6 @@
         <div class="tag-container">
             <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
                 #{{ article.topic }}
-            </div>
-            <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
-                #ipsum
-            </div>
-            <div class="tag" style="color:#135686;background-color:#b3d7f1;">
-                #dolor
             </div>
         </div>
     </div>
