@@ -1,17 +1,13 @@
+{% extends 'base_layout.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}
     <title>Articles</title>
-    <link rel="stylesheet" href="/static/article_list.css">
-</head>
-
-<body>
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'article_list.css' %}">
+{% endblock %}
+{% block content %}
     <div class="jumbotron">
         <center>
             <h1>471 News Aggregator</h1>
@@ -30,6 +26,4 @@
             </div>
         {% endfor %}
     </div>
-</body>
-
-</html>
+{% endblock %}
