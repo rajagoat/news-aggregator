@@ -9,31 +9,42 @@
 </head>
 
 <body>
+
+    <input type="checkbox" id="slide-box">
+
+    <label for="slide-box" class="slide-box-label">
+        Hello
+    </label>
    
+    
 
     <div class="slideover">
-        <h1 style="padding: 16px;">Notes</h1>
-        
+        <label for="slide-box" style="padding: 16px 0 0 6px;">
+            < Hide
+        </label>
+
+        <h1 style="padding: 0px 0 16px 16px;">Notes</h1>
+
         <div class="notes">
             {% for note in notes %}
             <div class="note">
                  <div class="flex-container">
                      <div class="note-card">
-                         <h3>{{note.user_id}}</h3>
-             
-                         <br />
-             
-                         <div>
-                             {{note.about}}
-                         </div>
-                     </div>
+                        <h3>{{note.user_id}}</h3>
+            
+                        <br />
+            
+                        <div>
+                            {{note.about}}
+                        </div>
+                    </div>
                  </div>
             </div>
             {%endfor%}
         </div>
     </div>
 
-   
+   <div class="test"></div>
 
     
 
