@@ -13,6 +13,9 @@
     <div class="articles">
         {% for article in articles %}
             <div class="article">
+                {% if article.img %}
+                    <img src="{{ article.img.url }}">
+                {% endif %}
                 <h2><a href="#">{{ article.name }}</a></h2>
                 <p>{{ article.snippet }}</p>
             </div>

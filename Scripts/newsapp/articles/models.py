@@ -14,7 +14,7 @@ class Article(models.Model):
         return self.name
 
     def snippet(self):
-        return {{ self.body|truncatechars:50 }}
+        return truncatechars(self.body, 50)
 
 # Topic
 
