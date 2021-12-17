@@ -20,11 +20,58 @@ def article_details(request, slug):
 def note_create(request):
     if request.method == 'POST':
         form = forms.CreateNote(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             # save article to db
+            instance = form.save(commit=False)
+            instance.user_id = request.user
             return redirect('articles/article_list.html')
         
     else:
         form = forms.CreateNote()
     
     return render(request, 'articles/note_create.html', { 'form':form })
+
+# @login_required(login_url="/accounts/login/")
+def auth_note_create(request):
+    if request.method == 'POST':
+        form = forms.CreateAuthNote(request.POST)
+        if form.is_valid():
+            # save article to db
+            instance = form.save(commit=False)
+            instance.user_id = request.user
+            return redirect('articles/article_list.html')
+        
+    else:
+        form = forms.CreateAuthNote()
+    
+    return render(request, 'articles/auth_note_create.html', { 'form':form })
+
+# @login_required(login_url="/accounts/login/")
+def comment_create(request):
+    if request.method == 'POST':
+        form = forms.CreateComment(request.POST)
+        if form.is_valid():
+            # save article to db
+            instance = form.save(commit=False)
+            instance.user_id = request.user
+            return redirect('articles/article_list.html')
+        
+    else:
+        form = forms.CreateComment()
+    
+    return render(request, 'articles/comment_create.html', { 'form':form })
+
+# @login_required(login_url="/accounts/login/")
+def rating_create(request):
+    if request.method == 'POST':
+        form = forms.CreateRating(request.POST)
+        if form.is_valid():
+            # save article to db
+            instance = form.save(commit=False)
+            instance.user_id = request.user
+            return redirect('articles/article_list.html')
+        
+    else:
+        form = forms.CreateRating()
+    
+    return render(request, 'articles/rating_create.html', { 'form':form })

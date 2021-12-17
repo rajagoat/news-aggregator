@@ -5,9 +5,19 @@ from attributes import models
 class CreateNote(forms.ModelForm):
     class Meta:
         model = models.Note
-        fields = ['note_id', 'about'] # How to pass in user_id?
+        fields = ['about']
 
-class CreateReview(forms.ModelForm):
+class CreateAuthNote(forms.ModelForm):
+    class Meta:
+        model = models.AuthNote
+        fields = ['title','body','article_id']
+
+class CreateRating(forms.ModelForm):
     class Meta:
         model = models.Rating
-        fields = ['refer_to_friend', 'rating'] # How to pass in user_id?
+        fields = ['refer_to_friend', 'rating', 'article_id']
+
+class CreateComment(forms.ModelForm):
+    class Meta:
+        model = models.Comment
+        fields = ['article_id', 'comment']
