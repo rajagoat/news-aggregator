@@ -12,7 +12,7 @@ def notes(request):
     try:
         notes = Note.objects.all()
     except Note.DoesNotExist:
-        raise Http404("Poll does not exist")
+        raise Http404("Notes does not exist")
     return render(request, 'notes.html', {'notes': notes})
 
 def comments(request):
