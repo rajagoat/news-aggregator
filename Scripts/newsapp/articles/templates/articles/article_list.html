@@ -1,35 +1,112 @@
+{% extends 'base_layout.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}
+<title>Articles</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'article_list.css' %}">
+<link rel="stylesheet" href={% static 'global.css' %}>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% endblock %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles</title>
-    <link rel="stylesheet" href="/static/article_list.css">
-</head>
+<input type="checkbox" id="slide-box">
 
-<body>
-    <div class="jumbotron">
-        <center>
-            <h1>471 News Aggregator</h1>
-            <br>
-        </center>
+<div class="slideover">
+    <label for="slide-box" class="btn btn-link" style="padding: 16px 0 0 6px;color:green;">
+        < Hide
+    </label>
+
+    <h1 style="padding: 0px 0 16px 16px;">Notes</h1>
+
+    <div class="notes">
+        {% for note in notes %}
+        <div class="note">
+             <div class="flex-container">
+                 <div class="note-card">
+                    <h3>{{note.user_id}}</h3>
+
+                    <br />
+
+                    <div>
+                        {{note.about}}
+                    </div>
+                </div>
+             </div>
+        </div>
+        {%endfor%}
     </div>
-    <h1>Article List</h1>
-    <div class="articles">
-        {% for article in articles %}
-            <div class="article">
-                {% if article.img %}
-                    <img src="{{ article.img.url }}">
-                {% endif %}
-                <h2><a href="#">{{ article.name }}</a></h2>
-                <p>{{ article.snippet }}</p>
+</div>
+
+<a href="" class="btn">Sign Out</a> <a href="" class="btn">Profile Settings</a>
+<div class="jumbotron">
+    <center>
+        <h1>471 News Aggregator</h1>
+        <br />
+        <input class="search" type="text" placeholder="Search" size="50">
+        <a href="" class="btn btn-link" style="color:green;">Submit</a>
+    </center>
+</div>
+
+<div style="margin:16px;display:flex;justify-content: space-between;">
+    <div>
+        Filter by topic:
+        <a href="" class="btn btn-link">#lorem</a>
+        <a href="" class="btn btn-link">#ipsum</a>
+        <a href="" class="btn btn-link">#dolor</a>
+        <a href="" class="btn btn-link">#sit</a>
+    </div>
+
+    <label for="slide-box" class="btn btn-warning">
+        View notes
+    </label>
+</div>
+
+<div class="articles">
+    {% for article in articles %}
+    <div class="article">
+
+        <div class="img">
+            <img src="{{ article.img.url }}">
+        </div>
+
+
+        <center class="flex-card-container">
+            <h3 class="snippetTitle">
+                {{article.snippetTitle}}
+            </h3>
+            <div class="snippet">
+                {{article.snippet}}
             </div>
-        {% endfor %}
-    </div>
-</body>
+            <div class="card-buttons">
+                <a href="" class="btn btn-success">See Reviews</a>
+                <a href="" class="btn btn-success">Add/Edit</a>
+            </div>
 
-</html>
+        </center>
+        <div class="tag-container">
+            <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
+                #lorem
+            </div>
+            <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
+                #ipsum
+            </div>
+            <div class="tag" style="color:#135686;background-color:#b3d7f1;">
+                #dolor
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+crossorigin="anonymous"></script>
+{% endblock %}

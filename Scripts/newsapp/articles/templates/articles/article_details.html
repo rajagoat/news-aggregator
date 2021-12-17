@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{ article.name }}</title>
+{% endblock %}
+{% block styles %}
+    <!-- <link rel="stylesheet" href="{% static 'article_list.css' %}"> -->
+{% endblock %}
+{% block content %}
+    <div class="article_details">
+        <div class="article">
+            <h2>{{ article.name }}</h2>
+            <p>{{ article.date }}</p>
+            {% if article.img %}
+                <img src="{{ article.img.url }}">
+            {% endif %}
+            <p>{{ article.body }}</p>
+        </div>
+    </div>
+{% endblock %}
