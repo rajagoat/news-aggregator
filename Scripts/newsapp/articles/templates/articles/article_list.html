@@ -36,7 +36,7 @@
                 </div>
              </div>
         </div>
-        {%endfor%}
+        {% endfor %}
     </div>
 </div>
 
@@ -53,10 +53,9 @@
 <div style="margin:16px;display:flex;justify-content: space-between;">
     <div>
         Filter by topic:
-        <a href="" class="btn btn-link">#lorem</a>
-        <a href="" class="btn btn-link">#ipsum</a>
-        <a href="" class="btn btn-link">#dolor</a>
-        <a href="" class="btn btn-link">#sit</a>
+        {% for topic in topics %}
+            <a href="#" class="btn btn-link">#{{ topic.name }}</a>
+        {% endfor %}
     </div>
 
     <label for="slide-box" class="btn btn-warning">
@@ -88,7 +87,7 @@
         
         <div class="tag-container">
             <div class="tag" style="color:#087a04;background-color:#d3f5d2;">
-                #lorem
+                #{{ article.topic }}
             </div>
             <div class="tag" style="color:#be1d1d;background-color:#f1c5c5;">
                 #ipsum
