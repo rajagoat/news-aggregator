@@ -3,21 +3,6 @@ from django.template.defaultfilters import default, truncatechars
 from django.utils.timezone import now
 
 # Create your models here.
-# Topic
-class Topic(models.Model):
-    name = models.CharField(primary_key=True, max_length=20)
-
-    def __str__(self):
-        return self.name
-
-# News Source
-class NewsSource(models.Model):
-    name = models.CharField(primary_key=True, max_length=100)
-
-    def __str__(self):
-        return self.name
-
-# Article
 class Article(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100)
@@ -25,8 +10,6 @@ class Article(models.Model):
     body = models.TextField()
     img = models.ImageField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True, max_length=50)
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, null=True, default=None)
-    newsSource = models.ForeignKey(NewsSource, on_delete=models.CASCADE, null=True, default=None)
 
     def __str__(self):
         return self.name
@@ -36,3 +19,7 @@ class Article(models.Model):
 
     def snippetTitle(self):
         return truncatechars(self.name, 34)
+
+# Topic
+
+# News Source
