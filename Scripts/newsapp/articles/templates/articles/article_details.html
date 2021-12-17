@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href={% static 'global.css' %}>
+<link rel="stylesheet" href={% static 'article_list.css' %}>
 
 {% endblock %}
 {% block content %}
@@ -48,6 +49,35 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
                 {{ article.body }}
             </div>
         </div>
+
+        <div class="feedback-box">
+            <div class="rating-card hi">
+                <center>
+                    <h1>Ratings</h1>
+                </center>
+                
+                {% for rating in ratings %}
+                <div>
+                    {% if rating.refer_to_friend %}
+                    <p>eivn</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+    
+            <div class="comment-card hi">
+                <center>
+                    <h1>Comments</h1>
+                </center>
+
+                {% for comment in comments %}
+                <div>
+                    {{ comment.comment }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
     </div>
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"

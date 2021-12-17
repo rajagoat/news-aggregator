@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Article
-from attributes.models import Note
+from attributes.models import Note, Rating, Comment
 from django.http import HttpResponse
 from . import forms
 
@@ -9,7 +9,9 @@ from . import forms
 def article_list(request):
     articles = Article.objects.all()
     notes = Note.objects.all()
-    return render(request, 'articles/article_list.html', {'articles': articles, 'notes':notes})
+    comments = Comment.objects.all()
+    ratings = Rating.objects.all()
+    return render(request, 'articles/article_list.html', {'articles': articles, 'notes':notes, 'comments':comments, 'ratings':ratings})
 
 def article_details(request, slug):
     # return HttpResponse(slug)
